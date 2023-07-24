@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ImageGalleryItem from 'components/imagegalleryitem/ImageGalleryItem';
 import css from './ImageGallery.module.css';
 
-const ImageGallery = ({ images, onItemClick }) => {
+const ImageGallery = ({ images, onImageClick }) => {
   useEffect(() => {
     console.log('new image');
   }, [images]);
@@ -11,11 +11,7 @@ const ImageGallery = ({ images, onItemClick }) => {
   return (
     <ul className={css.gallery}>
       {images.map(image => (
-        <ImageGalleryItem
-          key={image.id}
-          image={image}
-          onItemClick={onItemClick}
-        />
+        <ImageGalleryItem key={image.id} image={image} onClick={onImageClick} />
       ))}
     </ul>
   );
